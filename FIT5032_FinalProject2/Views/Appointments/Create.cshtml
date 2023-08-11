@@ -35,7 +35,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="date" class="form-control" name="Date" id="Date" />
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -43,7 +43,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Machine, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Machine, new { htmlAttributes = new { @class = "form-control" } })
+                <select class="form-control" name="Machine" id="Machine">
+                    <option value="">Please choose a machine</option>
+                    <option value="Machine1">OEC 3D</option>
+                    <option value="Machine2">Zenition 70</option>
+                    <option value="Machine3">CIO Flow</option>
+                </select>
                 @Html.ValidationMessageFor(model => model.Machine, "", new { @class = "text-danger" })
             </div>
         </div>
