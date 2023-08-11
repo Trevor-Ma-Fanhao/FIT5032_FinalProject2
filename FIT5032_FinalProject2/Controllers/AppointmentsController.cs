@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using FIT5032_FinalProject2.Models;
 using Microsoft.AspNet.Identity;
 
@@ -13,6 +14,7 @@ namespace FIT5032_FinalProject2.Controllers
 {
     public class AppointmentsController : Controller
     {
+
         private AppointmentModel db = new AppointmentModel();
 
         // GET: Appointments
@@ -21,8 +23,15 @@ namespace FIT5032_FinalProject2.Controllers
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
-            var appointments = db.Appointments.Where(s => s.UserID == userId).ToList();
-            return View(appointments);
+
+            if (User.IsInRole("Doctor"))
+            {
+                var allAppointments = db.Appointments.ToList();
+                return View(allAppointments);
+            }
+
+            var userAppointments = db.Appointments.Where(s => s.UserID == userId).ToList();
+            return View(userAppointments);
         }
 
         // GET: Appointments/Details/5
