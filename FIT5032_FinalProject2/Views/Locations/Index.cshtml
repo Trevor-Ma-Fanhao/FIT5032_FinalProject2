@@ -6,10 +6,10 @@
 }
 
 <h2>Index</h2>
-<div id="map" style="height:300px"></div>
+<div id="map" style="height:600px"></div>
 <br />
 <p>
-    @Html.ActionLink("Create New", "Create", "Locations", new { @class = "btn btn-primary" })
+    <button id="createLocationBtn" class="btn btn-primary">Add New Location</button>
 </p>
 <table class="table">
     <tr>
@@ -52,4 +52,11 @@
 </table>
 @section Scripts {
     @Scripts.Render("~/bundles/mapbox")
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+    <script>$(document).ready(function () {
+            $('.table').DataTable();
+        });</script>
 }
+<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css"
+      rel="stylesheet" />

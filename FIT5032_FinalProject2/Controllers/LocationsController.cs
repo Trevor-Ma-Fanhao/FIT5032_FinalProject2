@@ -36,9 +36,15 @@ namespace FIT5032_FinalProject2.Controllers
         }
 
         // GET: Locations/Create
-        public ActionResult Create()
+        public ActionResult Create(decimal? latitude, decimal? longitude)
         {
-            return View();
+            var location = new Location();
+            if (latitude.HasValue && longitude.HasValue)
+            {
+                location.Latitude = latitude.Value;
+                location.Longitude = longitude.Value;
+            }
+            return View(location);
         }
 
         // POST: Locations/Create

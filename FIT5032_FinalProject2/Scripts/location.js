@@ -92,9 +92,11 @@ map.on('load', function () {
 
 
 
-    map.addControl(new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken
-    }));;
+    //map.addControl(new MapboxGeocoder({
+    //    accessToken: mapboxgl.accessToken
+    //}));;
+
+
     map.addControl(new mapboxgl.NavigationControl());
     // When a click event occurs on a feature in the places layer, open a popup at the
     // location of the feature, with description HTML from its properties.
