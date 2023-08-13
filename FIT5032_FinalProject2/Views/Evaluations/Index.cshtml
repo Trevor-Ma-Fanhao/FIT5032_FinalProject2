@@ -11,42 +11,58 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Recovery)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Waiting)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.satisfaction)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserID)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Recovery)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Waiting)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.satisfaction)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Recovery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Waiting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.satisfaction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Recovery)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Waiting)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.satisfaction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+@section Scripts {
+
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap4.js")
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable();
+        });
+    </script>
+
+}
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css"
+      rel="stylesheet" />
