@@ -66,11 +66,19 @@ namespace FIT5032_FinalProject2.Controllers
             appointment.UserID = User.Identity.GetUserId();
             ModelState.Clear();
             TryValidateModel(appointment);
-            if (ModelState.IsValid)
+
+            bool hasDuplicateAppointment = db.Appointments.Any(a => a.Date == appointment.Date);
+
+            if (ModelState.IsValid && !hasDuplicateAppointment)
             {
                 db.Appointments.Add(appointment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+
+            if (hasDuplicateAppointment)
+            {
+                ModelState.AddModelError("Date", "An appointment with the same date already exists.");
             }
 
             return View(appointment);
