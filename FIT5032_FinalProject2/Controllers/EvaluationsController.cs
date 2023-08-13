@@ -101,7 +101,7 @@ namespace FIT5032_FinalProject2.Controllers
 
                 mail.Subject = "Evaluation Conformation";
                 mail.Body =
-                    "You made an appointment:\n" +
+                    "You made an evaluation:\n" +
                     "Recovery: " + Request.Form["Recovery"] + "\n" +
                     "Waiting: " + Request.Form["Waiting"] + "\n" +
                     "satisfaction: " + Request.Form["satisfaction"];
