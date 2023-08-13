@@ -17,5 +17,7 @@ namespace FIT5032_FinalProject2.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
+
+        public System.Data.Entity.DbSet<FIT5032_FinalProject2.Models.Location> Locations { get; set; }
     }
 }
