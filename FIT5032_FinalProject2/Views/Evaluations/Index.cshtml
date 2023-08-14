@@ -54,7 +54,8 @@
     </tbody>
 </table>
 <div style="width: 80%; margin: auto;">
-    <canvas id="myChart"></canvas> </div>
+    <canvas id="myChart"></canvas>
+</div>
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var data = @Html.Raw(Json.Encode(Model));
@@ -62,8 +63,43 @@
     var recoveryData = data.map(item => item.Recovery);
     var waitingData = data.map(item => item.Waiting);
     var satisfactionData = data.map(item => item.satisfaction);
-    var myChart = new Chart(ctx, { type: 'line', data: { labels: labels, datasets: [{ label: 'Recovery', data: recoveryData, borderColor: 'rgba(75, 192, 192, 1)', borderWidth: 1, fill: false }, { label: 'Waiting', data: waitingData, borderColor: 'rgba(255, 99, 132, 1)', borderWidth: 1, fill: false }, { label: 'Satisfaction', data: satisfactionData, borderColor: 'rgba(54, 162, 235, 1)', borderWidth: 1, fill: false }] }, options: { scales: { x: { beginAtZero: true }, y: { beginAtZero: true } } } });
- </script>
+    var myChart = new Chart(ctx,
+        {
+            type: 'line', data:
+            {
+                labels: labels, datasets:
+                    [
+                        {
+                            label: 'Recovery',
+                            data: recoveryData,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1,
+                            fill: false
+                        },
+                        {
+                            label: 'Waiting',
+                            data: waitingData,
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1,
+                            fill: false
+                        },
+                        {
+                            label: 'Satisfaction',
+                            data: satisfactionData,
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1, fill: false
+                        }]
+            }, options: {
+                scales:
+                {
+                    x:
+                        { beginAtZero: true },
+                    y:
+                        { beginAtZero: true }
+                }
+            }
+        });
+</script>
 @section Scripts {
 
     @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")

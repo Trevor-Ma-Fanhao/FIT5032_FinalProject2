@@ -17,8 +17,8 @@ namespace FIT5032_FinalProject2.Models
         [Required]
         public string LastName { get; set; }
 
-        [Required]
-        public string Date { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime Date { get; set; }
 
         [Required]
         public string Machine { get; set; }

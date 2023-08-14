@@ -8,7 +8,7 @@ namespace FIT5032_FinalProject2.Models
     public partial class AppointmentModel : DbContext
     {
         public AppointmentModel()
-            : base("name=AppointmentModel1")
+            : base("name=AppointmentModel2")
         {
         }
 

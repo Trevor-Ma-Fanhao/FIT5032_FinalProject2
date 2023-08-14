@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using FIT5032_FinalProject2.Models;
 using Microsoft.AspNet.Identity;
 
@@ -14,11 +13,9 @@ namespace FIT5032_FinalProject2.Controllers
 {
     public class AppointmentsController : Controller
     {
-
         private AppointmentModel db = new AppointmentModel();
 
         // GET: Appointments
-
         [Authorize]
         public ActionResult Index()
         {
