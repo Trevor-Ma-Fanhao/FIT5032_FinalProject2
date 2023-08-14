@@ -525,6 +525,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />
+    <Folder Include="Views\HomePageImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
